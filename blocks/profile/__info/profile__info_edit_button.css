@@ -1,4 +1,4 @@
-.profile__edit_button {
+.profile__info_edit_button {
     background-image: url(../../../images/edit_button.svg);
     width: 24px;
     height: 24px;
@@ -13,7 +13,7 @@
     cursor: pointer;
 }
 
-.profile__edit_button:hover {
+.profile__info_edit_button:hover {
     opacity: 0.6;
     transition: opacity 2s linear;
 }

@@ -1,12 +1,12 @@
-const editButton = document.querySelector('.profile__edit_button');
-const closeButton = document.querySelector('.popup__close_button');
+const editButton = document.querySelector('.profile__info_edit_button');
+const closeButton = document.querySelector('.popup_container__close_button');
 let likeButtons = document.querySelectorAll('.card__info_button_like');
-let profileName = document.querySelector('.profile__text_name');
-let profileDescription = document.querySelector('.profile__text_description');
+let profileName = document.querySelector('.profile__info_text_name');
+let profileDescription = document.querySelector('.profile__info_text_description');
 const popup = document.querySelector('.popup');
 let nameInput = document.querySelector('.form__name');
 let descriptionInput = document.querySelector('.form__description');
-let formElement = document.querySelector('.popup__container');
+let formElement = document.querySelector('.popup_container');
 
 
 editButton.addEventListener('click', togglePopup);

@@ -8,7 +8,7 @@
 
 * Ссылка на макет в figma: https://www.figma.com/file/StZjf8HnoeLdiXS7dYrLAh/JavaScript.-Sprint-4
 
-* Ссылка на проект на GitHubPages: https://github.com/KateAedon/russian-travel
+* Ссылка на проект на GitHubPages: https://github.com/KateAedon/mesto
 
 Планы по доработке сайта:
 1. Перевести сайт на английский язык.
