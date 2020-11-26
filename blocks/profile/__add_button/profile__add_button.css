@@ -1,5 +1,5 @@
 .profile__add_button {
-    background-image: url(/images/add_button.svg);
+    background-image: url(../../../images/add_button.svg);
     background-position: center;
     background-repeat: no-repeat;
     box-sizing: border-box;
@@ -8,6 +8,7 @@
     border: 2px solid #FFFFFF;
     background-color: black;
     margin-bottom: 15px;
+    margin-left: auto;
     cursor: pointer;
 }
 
