@@ -1,4 +1,4 @@
-.popup_container__close_button {
+.popup_container__close-button {
     background-image: url(../../../images/close_icon.svg);
     background-color: transparent;
     background-repeat: no-repeat;
@@ -12,7 +12,7 @@
     cursor: pointer;
 }
 
-.popup_container__close_button:hover {
+.popup_container__close-button:hover {
     opacity: 0.6;
     transition: opacity 1s linear;
 }

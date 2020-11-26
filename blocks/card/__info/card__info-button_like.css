@@ -1,4 +1,4 @@
-.card__info_button_like {
+.card__info-button_like {
     cursor: pointer;
     width: 20.76px;
     height: 18.13px;
@@ -9,7 +9,7 @@
     margin-right: 17.8px;
 }
 
-.card__info_button_like:hover {
+.card__info-button_like:hover {
     opacity: 0.5;
     transition: opacity 2s linear;
 }

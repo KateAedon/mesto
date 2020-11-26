@@ -1,8 +1,8 @@
-const editButton = document.querySelector('.profile__info_edit_button');
-const closeButton = document.querySelector('.popup_container__close_button');
-let likeButtons = document.querySelectorAll('.card__info_button_like');
-let profileName = document.querySelector('.profile__info_text_name');
-let profileDescription = document.querySelector('.profile__info_text_description');
+const editButton = document.querySelector('.profile__info-edit_button');
+const closeButton = document.querySelector('.popup_container__close-button');
+let likeButtons = document.querySelectorAll('.card__info-button_like');
+let profileName = document.querySelector('.profile__info-text_name');
+let profileDescription = document.querySelector('.profile__info-text_description');
 const popup = document.querySelector('.popup');
 let nameInput = document.querySelector('.form__name');
 let descriptionInput = document.querySelector('.form__description');
@@ -32,7 +32,7 @@ for (let i=0; i < likeButtons.length; i++) {
         event.preventDefault();
 
         function toggleLikeButton() {
-            likeButton.classList.toggle('card__info_button_like_active');    
+            likeButton.classList.toggle('card__info-button_like-active');    
         }
 
         toggleLikeButton(this);
