@@ -6,9 +6,9 @@
 
 На сайте использована версия 1.7 JavaScript
 
-* Ссылка на макет в figma: (https://www.figma.com/file/StZjf8HnoeLdiXS7dYrLAh/JavaScript.-Sprint-4)
+* Ссылка на макет в figma: https://www.figma.com/file/StZjf8HnoeLdiXS7dYrLAh/JavaScript.-Sprint-4
 
-* Ссылка на проект на GitHubPages: 
+* Ссылка на проект на GitHubPages: https://github.com/KateAedon/russian-travel
 
 Планы по доработке сайта:
 1. Перевести сайт на английский язык.
