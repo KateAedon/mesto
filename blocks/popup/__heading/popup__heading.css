@@ -1,4 +1,4 @@
-.popup_container__heading {
+.popup__heading {
     font-weight: 900;
     font-style: normal;
     font-size: 24px;
@@ -8,7 +8,7 @@
 }
 
 @media screen and (max-width: 514px){
-    .popup_container__heading {
+    .popup__heading {
         font-size: 18px;
     }
 }

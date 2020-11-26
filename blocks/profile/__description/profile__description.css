@@ -1,4 +1,4 @@
-.profile__info-text_description {
+.profile__description {
     font-weight: 400;
     font-size: 18px;
     line-height: 21.78px;
@@ -7,7 +7,7 @@
 }
 
 @media screen and (max-width: 784px){
-    .profile__info-text_description {
+    .profile__description {
         text-align: center;
     }
 }
