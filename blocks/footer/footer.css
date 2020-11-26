@@ -1,0 +1,18 @@
+.footer {
+    max-width: 880px;
+    margin: 67px auto 60px auto;
+    box-sizing: border-box;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21.78px;
+    color: #545454;
+}
+
+@media screen and (max-width: 796px){
+    .footer {
+        max-width: 80%;
+        margin: 0 auto;
+        padding-top: 48px;
+        padding-bottom: 36px;
+    }
+}

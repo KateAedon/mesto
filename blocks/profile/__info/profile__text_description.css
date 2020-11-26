@@ -1,0 +1,13 @@
+.profile__text_description {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21.78px;
+    margin: 0;
+    padding-top: 16px;
+}
+
+@media screen and (max-width: 784px){
+    .profile__text_description {
+        text-align: center;
+    }
+}
