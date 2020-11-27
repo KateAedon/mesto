@@ -8,10 +8,6 @@ let nameInput = document.querySelector('.form__name');
 let descriptionInput = document.querySelector('.form__description');
 let formElement = document.querySelector('.popup__container');
 
-
-editButton.addEventListener('click', togglePopup);
-closeButton.addEventListener('click', togglePopup);
-
 function togglePopup() {
     popup.classList.toggle('popup_opened');
 }
@@ -21,10 +17,7 @@ function formSubmitHandler(evt) {
     profileName.textContent = nameInput.value;
     profileDescription.textContent = descriptionInput.value;
     togglePopup();
-    closeButton.addEventListener('click', togglePopup); 
 }
-
-formElement.addEventListener('submit', formSubmitHandler);
 
 for (let i=0; i < likeButtons.length; i++) {
     let likeButton = likeButtons[i];
@@ -39,3 +32,7 @@ for (let i=0; i < likeButtons.length; i++) {
 
     }, false);
 } 
+
+editButton.addEventListener('click', togglePopup);
+closeButton.addEventListener('click', togglePopup);
+formElement.addEventListener('submit', formSubmitHandler);
