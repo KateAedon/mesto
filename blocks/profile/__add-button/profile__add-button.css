@@ -7,16 +7,21 @@
     height: 50px;
     border: 2px solid #FFFFFF;
     background-color: black;
-    margin-bottom: 15px;
     margin-left: auto;
     cursor: pointer;
 }
 
 @media screen and (max-width: 784px){
     .profile__add-button {
-        margin: 36px auto;
-        width: 88%;
+        margin: 36px 0;
+        width: 98%;
         padding: 0;
+    }
+}
+
+@media screen and (max-width: 320px){
+    .profile__add-button {
+        width: 282px;
     }
 }
 

@@ -10,6 +10,10 @@ let formElement = document.querySelector('.popup__container');
 
 function togglePopup() {
     popup.classList.toggle('popup_opened');
+    profileName.value = nameInput.textContent ;
+    profileDescription.value = descriptionInput.textContent;
+/* Я поняла, что нужно сделать, но если честно не поняла, как изменилось поведение 
+страницы, вроде без этих строчек происходит все тоже самое? Или нет?*/
 }
 
 function formSubmitHandler(evt) {
