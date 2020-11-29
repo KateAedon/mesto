@@ -4,16 +4,14 @@ let likeButtons = document.querySelectorAll('.card__button-like');
 let profileName = document.querySelector('.profile__name');
 let profileDescription = document.querySelector('.profile__description');
 const popup = document.querySelector('.popup');
-let nameInput = document.querySelector('.form__name');
-let descriptionInput = document.querySelector('.form__description');
+let nameInput = document.querySelector('.form__input_type_name');
+let descriptionInput = document.querySelector('.form__input_type_description');
 let formElement = document.querySelector('.popup__container');
 
 function togglePopup() {
     popup.classList.toggle('popup_opened');
     profileName.value = nameInput.textContent ;
     profileDescription.value = descriptionInput.textContent;
-/* Я поняла, что нужно сделать, но если честно не поняла, как изменилось поведение 
-страницы, вроде без этих строчек происходит все тоже самое? Или нет?*/
 }
 
 function formSubmitHandler(evt) {
