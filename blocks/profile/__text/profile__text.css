@@ -1,7 +1,3 @@
-.profile__text {
-    padding-left: 30px;
-}
-
 @media screen and (max-width: 784px){
     .profile__text {
         margin: 0 auto;
