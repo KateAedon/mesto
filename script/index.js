@@ -8,6 +8,33 @@ let nameInput = document.querySelector('.form__input_type_name');
 let descriptionInput = document.querySelector('.form__input_type_description');
 let formElement = document.querySelector('.popup__container');
 
+const initialCards = [
+    {
+        name: 'Архыз',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+    },
+    {
+        name: 'Челябинская область',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+    },
+    {
+        name: 'Иваново',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+    },
+    {
+        name: 'Камчатка',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+    },
+    {
+        name: 'Холмогорский район',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+    },
+    {
+        name: 'Байкал',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+    }
+];
+
 function togglePopup() {
     popup.classList.toggle('popup_opened');
     profileName.value = nameInput.textContent ;
@@ -20,20 +47,6 @@ function formSubmitHandler(evt) {
     profileDescription.textContent = descriptionInput.value;
     togglePopup();
 }
-
-for (let i=0; i < likeButtons.length; i++) {
-    let likeButton = likeButtons[i];
-    likeButton.addEventListener('click', function (event) {  
-        event.preventDefault();
-
-        function toggleLikeButton() {
-            likeButton.classList.toggle('card__button-like_active');    
-        }
-
-        toggleLikeButton(this);
-
-    }, false);
-} 
 
 editButton.addEventListener('click', togglePopup);
 closeButton.addEventListener('click', togglePopup);
