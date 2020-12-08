@@ -55,11 +55,11 @@ const initialCards = [
 const popupCard = document.querySelector('.popup-card');
 const addButton = document.querySelector('.profile__add-button');
 const cardCloseButton = document.querySelector('.popup-card__close-button');
-const templateElement = document.querySelector('.card-template').content;
+const templateElement = document.querySelector('.card-template');
 const cardsContainer = document.querySelector('.cards__list');
 
 function makeCard(card) {
-    const newCard = templateElement.cloneNode(true);
+    const newCard = templateElement.content.cloneNode(true);
     newCard.querySelector('.card__image').src = card.link;
     newCard.querySelector('.card__name').textContent = card.name;
     cardsContainer.append(newCard);
@@ -71,5 +71,23 @@ function toggleCardPopup() {
     popupCard.classList.toggle('popup_opened');
 }
 
+let cardNameInput = document.querySelector('.card-form__input_type_name');
+let cardLinkInput = document.querySelector('.card-form__input_type_link');
+let cardFormElement = document.querySelector('.popup-card__container');
+
+function addNewCard(card) {
+    const newCard = templateElement.content.cloneNode(true);
+    newCard.querySelector('.card__image').src = cardLinkInput.value;
+    newCard.querySelector('.card__name').textContent = cardNameInput.value;
+    cardsContainer.append(newCard);
+}
+
+function cardFormSubmitHandler(evt) {
+    evt.preventDefault();
+    addNewCard();
+    toggleCardPopup();
+}
+
 addButton.addEventListener('click', toggleCardPopup);
 cardCloseButton.addEventListener('click', toggleCardPopup);
+cardFormElement.addEventListener('submit', cardFormSubmitHandler); 
