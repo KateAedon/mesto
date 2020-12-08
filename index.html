@@ -27,76 +27,44 @@
             </section>
             <section class="cards">
                 <ul class="cards__list">
-                    <li class="card">
-                        <img class="card__image" src="./images/kirill-pershin-1088404-unsplash.png" alt="Фото места">
-                        <div class="card__info">
-                            <h2 class="card__name">Карачаево-Ч...</h2>
-                            <button type="button" class="card__button-like"></button>
-                        </div>
-                    </li>
-                    <li class="card">
-                        <img class="card__image" src="./images/kirill-pershin-1556355-unsplash.png" alt="Фото места">
-                        <div class="card__info">
-                            <h2 class="card__name">Домбай</h2>
-                            <button type="button" class="card__button-like"></button>
-                        </div>    
-                    </li>
-                    <li class="card">
-                        <img class="card__image" src="./images/kirill-pershin-1404681-unsplash.png" alt="Фото места">
-                        <div class="card__info">
-                            <h2 class="card__name">Гора Эльбрус</h2>
-                            <button type="button" class="card__button-like"></button>
-                        </div>
-                    </li>
-                    <li class="card">
-                        <img class="card__image" src="./images/kirill-pershin-1088404-unsplash.png" alt="Фото места">
-                        <div class="card__info">
-                            <h2 class="card__name">Домбай</h2>
-                            <button type="button" class="card__button-like"></button>
-                        </div>
-                    </li>
-                    <li class="card">
-                        <img class="card__image" src="./images/kirill-pershin-1088404-unsplash.png" alt="Фото места">
-                        <div class="card__info">
-                            <h2 class="card__name">Карачаево-Ч...</h2>
-                            <button type="button" class="card__button-like"></button>
-                        </div>
-                    </li>
-                    <li class="card">
-                        <img class="card__image" src="./images/kirill-pershin-1088404-unsplash.png" alt="Фото места">
-                        <div class="card__info">
-                            <h2 class="card__name">Карачаево-Ч...</h2>
-                            <button type="button" class="card__button-like"></button>
-                        </div>
-                    </li>
-            </ul>
+       
+                </ul>
             </section>
         </main>
         <footer class="footer">
             <p class="footer__copyright">&#169; 2020. Kate Aedon</p>
         </footer>
-        <section class="popup">
-            <div class="popup__container">
-                <button type="button" class="popup__close-button"></button>
+        <section class="popup popup-profile">
+            <div class="popup__container popup-profile__container">
+                <button type="button" class="popup-profile__close-button popup__close-button"></button>
                 <h2 class="popup__heading">Редактировать профиль</h2>
-                <form class="form" name="edit-information">
+                <form class="form profile-form" name="edit-information">
                     <input type="text" class="form__input form__input_type_name" name="name" value="Жак-Ив Кусто" placeholder="Имя">
                     <input type="text" class="form__input form__input_type_description" name="description" value="Исследователь океана" placeholder="О себе">
-                    <button type="submit" class="form__save-button">Сохранить</button>
+                    <button type="submit" class="form-profile__save-button form__save-button">Сохранить</button>
                 </form>
             </div>
         </section>
-
-        <template id="card-template">
+        <section class="popup popup-card">
+            <div class="popup__container">
+                <button type="button" class="popup-card__close-button popup__close-button"></button>
+                <h2 class="popup__heading">Новое место</h2>
+                <form class="form card-form" name="edit-information">
+                    <input type="text" class="card-form__input_type_name form__input" name="name" value="" placeholder="Название">
+                    <input type="text" class="card-form__input_type_link form__input" name="link" value="" placeholder="Ссылка на картинку">
+                    <button type="submit" class="card-form__save-button form__save-button">Создать</button>
+                </form>
+            </div>
+        </section>
+        <template class="card-template">
             <li class="card">
-                <img class="card__image" src="" alt="">
+                <img class="card__image" src="">
                 <div class="card__info">
                     <h2 class="card__name"></h2>
                     <button type="button" class="card__button-like"></button>
                 </div>
             </li>
         </template>
-
         <script src="./script/index.js"></script>
 </body>
 </html>
