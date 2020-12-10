@@ -11,6 +11,6 @@
     display: none;
     visibility: hidden;
     opacity: 0;
-    transition: visibility 0s linear .5s, opacity .5s linear;
+    transition: visibility 2s, opacity 2s;
     overflow: hidden;
 }
