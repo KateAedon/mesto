@@ -44,8 +44,11 @@ const initialCards = [
     }
 ];
 
+const popupContainer = document.querySelector('.popup__container');
+
 function toggleProfilePopup() {
     popupProfile.classList.toggle('popup_opened');
+    popupContainer.classList.toggle('popup__container-fade')
     profileName.value = nameInput.textContent ;
     profileDescription.value = descriptionInput.textContent;
 }
@@ -73,10 +76,6 @@ function makeCard(card) {
     cardsContainer.append(newCard);
 }
 
-function toggleCardPopup() {
-    popupCard.classList.toggle('popup_opened');
-}
-
 function addNewCard(card) {
     const newCard = templateElement.content.cloneNode(true);
     newCard.querySelector('.card__image').src = cardLinkInput.value;
@@ -91,6 +90,10 @@ function addNewCard(card) {
         showBigImage(cardLinkInput.value, cardNameInput.value)
     });
     cardsContainer.append(newCard);
+}
+
+function toggleCardPopup() {
+    popupCard.classList.toggle('popup_opened');
 }
 
 function cardFormSubmitHandler(evt) {
