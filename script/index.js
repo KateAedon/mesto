@@ -6,8 +6,8 @@ const popupProfile = document.querySelector('.popup-profile');
 let nameInput = document.querySelector('.form__input_type_name');
 let descriptionInput = document.querySelector('.form__input_type_description');
 let profileFormElement = document.querySelector('.popup-profile__container');
-let cardNameInput = document.querySelector('.card-form__input_type_name');
-let cardLinkInput = document.querySelector('.card-form__input_type_link');
+let cardNameInput = document.querySelector('.card-form__input_type_place-name');
+let cardLinkInput = document.querySelector('.card-form__input_type_place-link');
 let cardFormElement = document.querySelector('.popup-card__container');
 const popupCard = document.querySelector('.popup-card');
 const addButton = document.querySelector('.profile__add-button');
@@ -48,7 +48,6 @@ const popupContainer = document.querySelector('.popup__container');
 
 function toggleProfilePopup() {
     popupProfile.classList.toggle('popup_opened');
-    popupContainer.classList.toggle('popup__container-fade')
     profileName.value = nameInput.textContent ;
     profileDescription.value = descriptionInput.textContent;
 }
