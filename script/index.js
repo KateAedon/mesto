@@ -1,7 +1,7 @@
 const editButton = document.querySelector('.profile__edit-button');
 const profileCloseButton = document.querySelector('.popup-profile__close-button');
-let profileName = document.querySelector('.profile__name');
-let profileDescription = document.querySelector('.profile__description');
+const profileName = document.querySelector('.profile__name');
+const profileDescription = document.querySelector('.profile__description');
 const popupProfile = document.querySelector('.popup-profile');
 const nameInput = document.querySelector('.form__input_type_name');
 const descriptionInput = document.querySelector('.form__input_type_description');
@@ -66,6 +66,8 @@ function cardFormSubmitHandler(evt) {
     evt.preventDefault();
     addElement(createCard(cardNameInput.value, cardLinkInput.value));
     closePopup(popupCard);
+    const form = document.querySelector('.card-form');
+    form.reset();
 }
 
 function createCard(name, link) { 
