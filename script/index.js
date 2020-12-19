@@ -3,12 +3,6 @@ const profileCloseButton = document.querySelector('.popup-profile__close-button'
 const profileName = document.querySelector('.profile__name');
 const profileDescription = document.querySelector('.profile__description');
 const popupProfile = document.querySelector('.popup-profile');
-const nameInput = document.querySelector('.form__input_type_name');
-const descriptionInput = document.querySelector('.form__input_type_description');
-const profileFormElement = document.querySelector('.popup-profile__container');
-const cardNameInput = document.querySelector('.form__input_type_place');
-const cardLinkInput = document.querySelector('.form__input_type_link');
-const cardFormElement = document.querySelector('.popup-card__container');
 const popupCard = document.querySelector('.popup-card');
 const addButton = document.querySelector('.profile__add-button');
 const cardCloseButton = document.querySelector('.popup-card__close-button');
@@ -18,6 +12,13 @@ const imageCloseButton = document.querySelector('.popup-image__close-button');
 const popupImage = document.querySelector('.popup-image');
 const popup = document.querySelector('.popup');
 const popupContainer = document.querySelector('.popup__container');
+const nameInput = document.querySelector('.form__input_type_name');
+const descriptionInput = document.querySelector('.form__input_type_description');
+const cardNameInput = document.querySelector('.form__input_type_place');
+const cardLinkInput = document.querySelector('.form__input_type_link');
+const profileFormElement = document.querySelector('.popup-profile__container');
+const profileInput = profileFormElement.querySelector('.form__input_type_name');
+const cardFormElement = document.querySelector('.popup-card__container');
 
 const initialCards = [
     {

@@ -37,20 +37,58 @@
             <div class="popup__container popup-profile__container">
                 <button type="button" class="popup-profile__close-button popup__close-button"></button>
                 <h2 class="popup__heading">Редактировать профиль</h2>
-                <form class="form profile-form" name="edit-information">
-                    <input type="text" class="form__input form__input_type_name" name="name" value="Жак-Ив Кусто" placeholder="Имя">
-                    <input type="text" class="form__input form__input_type_description" name="description" value="Исследователь океана" placeholder="О себе">
+                <form class="form profile-form" name="edit-information" novalidate>
+                    <input type="text"
+                            id="profile-form-name"
+                            autocomplete="off"
+                            required 
+                            minlength="2"
+                            maxlength="40"
+                            class="form__input form__input_type_name" 
+                            name="name" 
+                            value="Жак-Ив Кусто" 
+                            placeholder="Имя">
+                    <span id="profile-form-name-error" class="error"></span>
+                    <input type="text"
+                            id="profile-form-description" 
+                            required
+                            minlength="2"
+                            maxlength="200"
+                            autocomplete="off"
+                            class="form__input form__input_type_description" 
+                            name="description" 
+                            value="Исследователь океана" 
+                            placeholder="О себе">
+                    <span id="profile-form-description-error" class="error"></span>
                     <button type="submit" class="profile-form__save-button form__save-button">Сохранить</button>
                 </form>
             </div>
         </section>
-        <section class="popup popup-card">
+     <section class="popup popup-card">
             <div class="popup__container popup-card__container">
                 <button type="button" class="popup-card__close-button popup__close-button"></button>
                 <h2 class="popup__heading">Новое место</h2>
-                <form class="form card-form" name="edit-information">
-                    <input type="text" class="form__input_type_place form__input" name="name" value="" placeholder="Название" required>
-                    <input type="url" class="form__input_type_link form__input" name="link" value="" placeholder="Ссылка на картинку" required>
+                <form class="form card-form" name="edit-information" novalidate>
+                    <input type="text"
+                            id="card-form-name"
+                            autocomplete="off" 
+                            minlength="2"
+                            maxlength="30"
+                            class="form__input_type_place form__input" 
+                            name="name" 
+                            value="" 
+                            placeholder="Название" 
+                            required>
+                    <span id="card-form-name-error" class="error"></span>
+                    <input type="url" 
+                            id="card-form-link"
+                            autocomplete="off"
+                            class="form__input_type_link form__input" 
+                            name="link" 
+                            value="" 
+                            placeholder="Ссылка на картинку" 
+                            required>
+                    <span id="card-form-link-error" class="error"></span>
                     <button type="submit" class="card-form__save-button form__save-button">Создать</button>
                 </form>
             </div>
@@ -73,6 +111,7 @@
             </li>
         </template>
         <script src="./script/index.js"></script>
+        <script src="./script/validate.js"></script>
 </body>
 </html>
  

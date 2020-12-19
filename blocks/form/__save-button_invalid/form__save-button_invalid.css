@@ -1,0 +1,15 @@
+.form__save-button_invalid {
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 21.78px;
+        text-align: center;
+        cursor: auto;
+        padding: 0;
+        width: 358px;
+        height: 50px;
+        color: #C4C4C4;
+        background-color: white;
+        border: 1px solid rgba(0,0,0,0.2);
+        border-radius: 2px;
+        margin-top: 45px;
+    }
