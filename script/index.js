@@ -43,11 +43,12 @@ const cardLinkInput = document.querySelector('.form__input_type_link');
 const profileFormElement = document.querySelector('.popup-profile__container');
 const profileInput = profileFormElement.querySelector('.form__input_type_name');
 const cardFormElement = document.querySelector('.popup-card__container');
+const text = document.querySelector('.popup-image__name');
+const image = document.querySelector('.popup-image__image');
+const form = document.querySelector('.card-form');
 
 const showBigImage = (link, name) => {
     openPopup(popupImage);
-    const text = document.querySelector('.popup-image__name');
-    const image = document.querySelector('.popup-image__image');
     text.textContent = name;
     image.alt = name;
     image.src = link;
@@ -64,7 +65,6 @@ function cardFormSubmitHandler(evt) {
     evt.preventDefault();
     addElement(createCard(cardNameInput.value, cardLinkInput.value));
     closePopup(popupCard);
-    const form = document.querySelector('.card-form');
     form.reset();
 }
 
@@ -136,11 +136,11 @@ imageCloseButton.addEventListener('click', function() {
 });
 
 function likeCard(evt) {
-    evt.target.closest('.card__button-like').classList.toggle('card__button-like_active');
+    evt.target.classList.toggle('card__button-like_active');
 }
 
 function deleteCard(event) {
-    event.target.parentNode.remove();
+    event.target.closest('.card').remove();
 }
 
 editButton.addEventListener('click', function() {
