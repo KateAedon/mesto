@@ -1,4 +1,4 @@
-import { openPopup, popupImage} from './index.js';
+import { showBigImage } from './index.js';
 
 export class Card {
     constructor(name, link, cardSelector) {
@@ -6,22 +6,25 @@ export class Card {
         this._image = link;
         this._cardSelector = cardSelector;
     }
+
     // метод создания шаблона карточки
     _getTemplate() {
-        const cardTemplate = document.querySelector('.card-template').content.querySelector('.card').cloneNode(true);
+        const cardTemplate = document.querySelector(this._cardSelector).content.querySelector('.card').cloneNode(true); 
         return cardTemplate;
     }
 
     // метод для заполнения нового шаблона данными
     generateCard() {
         this._element = this._getTemplate();
-        this._element.querySelector('.card__image').src = this._image;
-        this._element.querySelector('.card__image').alt = this._image;
+        const cardImage = this._element.querySelector('.card__image');
+
+        cardImage.src = this._image;
+        cardImage.alt = this._image;
         this._element.querySelector('.card__name').textContent = this._text;
 
         this._setEventListeners();
 
-        return this._element;
+          return this._element;
     }
 
     // метод установки слушателей событий (лайк, удаление, показать большое изображение)
@@ -33,7 +36,7 @@ export class Card {
             this._deleteCard(evt);
         }); 
         this._element.querySelector('.card__image').addEventListener('click', () => {
-            this._showBigImage();
+            showBigImage(this._text , this._image);
         });
     }
 
@@ -47,12 +50,4 @@ export class Card {
         event.target.closest('.card').remove();
     }
 
-    //метод вызова попапа с большим изображением 
-    _showBigImage() {
-        const popupImageElement = popupImage.querySelector('.popup-image__image');
-        popupImageElement.alt = this._text;
-        popupImageElement.src = this._image;
-        popupImage.querySelector('.popup-image__name').textContent = this._text;
-        openPopup(popupImage);
-    }
 }
