@@ -1,10 +1,9 @@
-import { showBigImage } from './index.js';
-
 export class Card {
-    constructor(name, link, cardSelector) {
+    constructor(name, link, cardSelector, showBigImage) {
         this._text = name;
         this._image = link;
         this._cardSelector = cardSelector;
+        this._showBigImage = showBigImage;
     }
 
     // метод создания шаблона карточки
@@ -36,7 +35,7 @@ export class Card {
             this._deleteCard(evt);
         }); 
         this._element.querySelector('.card__image').addEventListener('click', () => {
-            showBigImage(this._text , this._image);
+            this._showBigImage(this._text, this._image);
         });
     }
 

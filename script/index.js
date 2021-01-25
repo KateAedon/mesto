@@ -113,14 +113,14 @@ export const showBigImage = (name, link) => {
 function addNewCard() {
     const cardText = cardNameInput.value;
     const cardLink = cardLinkInput.value;
-    const card = new Card(cardText, cardLink, '.card-template');
+    const card = new Card(cardText, cardLink, '.card-template', showBigImage);
     const cardElement = card.generateCard();
     cardsContainer.prepend(cardElement);
 }
 
 // создаем карточки из заданного объекта InitialCards
 initialCards.forEach((item) => {
-    const card = new Card(item.name, item.link, '.card-template');
+    const card = new Card(item.name, item.link, '.card-template', showBigImage);
     const cardElement = card.generateCard();
     const cardsContainer = document.querySelector('.cards__list');
     cardsContainer.append(cardElement);
