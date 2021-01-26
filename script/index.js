@@ -1,41 +1,29 @@
 import {Card} from './Card.js';
 import {FormValidator} from './FormValidator.js';
-import {initialCards} from './initial_cards.js';
-
-
-const cardsContainer = document.querySelector('.cards__list');
-
-const editButton = document.querySelector('.profile__edit-button');
-const addButton = document.querySelector('.profile__add-button');
-const imageCloseButton = document.querySelector('.popup-image__close-button');
-const cardCloseButton = document.querySelector('.popup-card__close-button');
-const profileCloseButton = document.querySelector('.popup-profile__close-button');
-
-const profileName = document.querySelector('.profile__name');
-const profileDescription = document.querySelector('.profile__description');
-
-const popupProfile = document.querySelector('.popup-profile');
-const popupCard = document.querySelector('.popup-card');
-const popupImage = document.querySelector('.popup-image');
-const popupImageName = popupImage.querySelector('.popup-image__name')
-const profileFormElement = document.querySelector('.popup-profile__container');
-const cardFormElement = document.querySelector('.popup-card__container');
-
-const form = document.querySelector('.card-form');
-const nameInput = document.querySelector('.form__input_type_name');
-const descriptionInput = document.querySelector('.form__input_type_description');
-const cardNameInput = document.querySelector('.form__input_type_place');
-const cardLinkInput = document.querySelector('.form__input_type_link');
-const escapeKey = 'Escape';
-
-const  validationConfig= {
-    formSelector: '.form',
-    inputSelector: '.form__input',
-    submitButtonSelector: '.form__save-button',
-    inactiveButtonClass: 'form__save-button_invalid',
-    inputErrorClass: 'popup__input__state_invalid',
-    errorClass: '.popup__error_visible'
-}
+import {
+    initialCards,
+    cardsContainer,
+    editButton,
+    addButton,
+    imageCloseButton,
+    cardCloseButton,
+    profileCloseButton,
+    profileName,
+    profileDescription,
+    popupProfile,
+    popupCard,
+    popupImage,
+    popupImageName,
+    profileFormElement,
+    cardFormElement,
+    form,
+    nameInput,
+    descriptionInput,
+    cardNameInput,
+    cardLinkInput,
+    escapeKey,
+    validationConfig
+} from '../utils/constants.js';
 
 function formSubmitHandler(evt) {
     evt.preventDefault();
@@ -101,7 +89,7 @@ addButton.addEventListener('click', function() {
 profileFormElement.addEventListener('submit', formSubmitHandler);
 cardFormElement.addEventListener('submit', cardFormSubmitHandler); 
 
-export const showBigImage = (name, link) => {
+const showBigImage = (name, link) => {
     const popupImageElement = popupImage.querySelector('.popup-image__image');
     popupImageName.textContent = name;
     popupImageElement.src = link;
