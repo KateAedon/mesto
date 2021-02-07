@@ -1,14 +1,19 @@
 export class Card {
-    constructor(name, link, cardSelector, showBigImage) {
-        this._text = name;
-        this._image = link;
+    constructor(data, { handleCardClick }, cardSelector ) {
+        this._text = data.name;
+        this._image = data.link;
+        this._alt = data.alt;
         this._cardSelector = cardSelector;
-        this._showBigImage = showBigImage;
+        this._handleCardClick = handleCardClick;
     }
 
     // метод создания шаблона карточки
     _getTemplate() {
-        const cardTemplate = document.querySelector(this._cardSelector).content.querySelector('.card').cloneNode(true); 
+        const cardTemplate = document
+            .querySelector(this._cardSelector)
+            .content
+            .querySelector('.card')
+            .cloneNode(true); 
         return cardTemplate;
     }
 
@@ -16,12 +21,11 @@ export class Card {
     generateCard() {
         this._element = this._getTemplate();
         const cardImage = this._element.querySelector('.card__image');
-
         cardImage.src = this._image;
-        cardImage.alt = this._image;
+        cardImage.alt = this._alt;
         this._element.querySelector('.card__name').textContent = this._text;
 
-        this._setEventListeners();
+        this._setEventListeners('.card__image');
 
           return this._element;
     }
@@ -34,9 +38,9 @@ export class Card {
         this._element.querySelector('.card__button-delete').addEventListener('click', (evt) => {
             this._deleteCard(evt);
         }); 
-        this._element.querySelector('.card__image').addEventListener('click', () => {
-            this._showBigImage(this._text, this._image);
-        });
+      this._element.querySelector('.card__image').addEventListener('click', () => {
+            this._handleCardClick(this._text, this._image, this._alt);
+      });
     }
 
     // метод переключения состояния кнопки "лайк"
