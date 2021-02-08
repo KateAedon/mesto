@@ -27,6 +27,7 @@ export const initialCards = [
     }
 ];
 
+
 export const cardsContainer = document.querySelector('.cards__list');
 
 export const editButton = document.querySelector('.profile__edit-button');

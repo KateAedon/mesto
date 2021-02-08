@@ -16,7 +16,7 @@ export class Popup {
         document.removeEventListener('keydown', this._handleEscClose);
     }
 
-    _handleEscClose = (evt) => {
+    _handleEscClose(evt){
         if (evt.key === escapeKey) {
         this.closePopup();
         }
