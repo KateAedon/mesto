@@ -4,6 +4,7 @@ import { Section } from '../components/Section.js';
 import { UserInfo } from '../components/UserInfo.js';
 import { PopupWithImage } from '../components/PopupWithImage.js';
 import { PopupWithForm } from '../components/PopupWithForm.js';
+import { FormValidator } from '../components/FormValidator.js';
 import {
     profileName,
     profileDescription,
@@ -19,9 +20,13 @@ import {
     nameInput,
     descriptionInput,
     popupCard, 
-    editProfileValidator,
-    addCardValidator 
+    validationConfig,
+    profileForm,
+    cardForm
 } from '../utils/constants.js';
+
+const editProfileValidator = new FormValidator(validationConfig, profileForm);
+const addCardValidator = new FormValidator(validationConfig, cardForm);
 
 function validateForms () {
     editProfileValidator.enableValidation();
@@ -36,7 +41,6 @@ const editProfilePopup = new PopupWithForm(
     popupProfile, 
     editProfileValidator, 
     { handleFormSubmit: (data) => {
-        const profileInfo = new UserInfo(profileName, profileDescription);
         profileInfo.setUserInfo(data);
         editProfilePopup.closePopup();
     }
@@ -45,7 +49,8 @@ const editProfilePopup = new PopupWithForm(
 const addCardPopup = new PopupWithForm(
     popupCard, addCardValidator, {
         handleFormSubmit: (data) => {
-            createCard(data);
+            const newCard = createCard(data);
+            const cardElement = appendCard(newCard);
             addCardPopup.closePopup();
         }
 });
@@ -58,45 +63,39 @@ editButton.addEventListener('click', () => {
     const userData = profileInfo.getUserInfo();
     nameInput.value = userData.name;
     descriptionInput.value = userData.description;
-    profileInfo.setUserInfo(userData);
     editProfilePopup.openPopup();
-});
-
-profileCloseButton.addEventListener('click', function () { 
-    editProfilePopup.closePopup();
 });
 
 addButton.addEventListener('click', function () {
     addCardPopup.openPopup();
 });
 
-cardCloseButton.addEventListener('click', function () {
-    addCardPopup.closePopup();
-});
-
-imageCloseButton.addEventListener('click', function () {
-    fullsizePopup.closePopup();
-});
-
 function createCard(data) {
-    const card = new Card(
+    const card = new Card( 
         data, 
         { handleCardClick: () => {
             fullsizePopup.openPopup(data);
         }, 
     },
         '.card-template');
+    return card;
+}
+
+function appendCard(card) {
     const cardElement = card.generateCard();
     cardsContainer.prepend(cardElement);
+    return cardElement;
 }
 
 const cardsList = new Section ({
     data: initialCards,
     renderer: (data) => {
-        createCard(data);
+        const newCard = createCard(data);
+        appendCard(newCard);
     },
 }, cardsContainer
 );
+
 
 cardsList.addItems();
 validateForms()

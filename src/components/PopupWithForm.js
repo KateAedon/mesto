@@ -1,19 +1,16 @@
 import { Popup } from '../components/Popup.js';
-import { validationConfig } from '../utils/constants.js';
 
 export class PopupWithForm extends Popup {
     constructor(popupSelector, formValidator, {handleFormSubmit}) {
         super(popupSelector);
         this._handleFormSubmit = handleFormSubmit;
-        this._form = this._popup.querySelector(validationConfig.formSelector);
-        this._formValidator = formValidator;
-        this._submitButton = this._form.querySelector(validationConfig.submitButtonSelector);
-        
+        this._form = this._popup.querySelector('.form');
+        this._submitButton = this._form.querySelector('.form__save-button');
         this._evtSubmit = this._evtSubmit.bind(this);
+        this._inputList = Array.from(this._form.querySelectorAll('.form__input'));
     }
 
     _getInputValues() {
-        this._inputList = Array.from(this._form.querySelectorAll(validationConfig.inputSelector));
         this._formValues = {};
         this._inputList.forEach(input => this._formValues[input.name] = input.value);
         return this._formValues;
@@ -34,7 +31,6 @@ export class PopupWithForm extends Popup {
 
     closePopup() {
         super.closePopup();
-     
         this._form.reset();
     }
 }

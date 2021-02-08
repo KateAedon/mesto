@@ -1,5 +1,3 @@
-import { FormValidator } from '../components/FormValidator.js';
-
 export const initialCards = [
     {
         name: 'Архыз',
@@ -26,7 +24,6 @@ export const initialCards = [
         link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
     }
 ];
-
 
 export const cardsContainer = document.querySelector('.cards__list');
 
@@ -67,6 +64,3 @@ export const  validationConfig= {
     inputErrorClass: 'popup__input__state_invalid',
     errorClass: '.popup__error_visible'
 }
-
-export const editProfileValidator = new FormValidator(validationConfig, profileForm);
-export const addCardValidator = new FormValidator(validationConfig, cardForm);
