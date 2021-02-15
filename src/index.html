@@ -14,7 +14,9 @@
         </header> 
         <main class="content">
             <section class="profile">
-                <img class="profile__image" src="<%=require('./images/profile__image.png')%>" alt="фото профиля">
+                <div class="profile__image-container">
+                    <img class="profile__image" src="<%=require('./images/profile__image.png')%>" alt="фото профиля">
+                </div>
                 <div class="profile__info">
                     <div class="profile__text">
                         <h1 class="profile__name">Жак-Ив Кусто</h1>
@@ -104,7 +106,10 @@
                 <img class="card__image" src='https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg' alt="изображение">
                 <div class="card__info">
                     <h2 class="card__name"></h2>
-                    <button type="button" class="card__button-like"></button>
+                    <div class="card__button-like-container">
+                        <button type="button" class="card__button-like"></button>
+                        <p class="likes-counter"></p>
+                    </div>
                 </div>  
                 <button type="button" class="card__button-delete"></button>
             </li>

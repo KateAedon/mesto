@@ -1,4 +1,5 @@
 import './index.css';
+import { Api } from '../components/Api.js';
 import { Card } from '../components/Card.js';
 import { Section } from '../components/Section.js';
 import { UserInfo } from '../components/UserInfo.js';
@@ -10,19 +11,16 @@ import {
     profileDescription,
     popupImage, 
     popupProfile,
-    profileCloseButton, 
-    initialCards,
     cardsContainer,
     editButton,
     addButton,
-    cardCloseButton,
-    imageCloseButton,
     nameInput,
     descriptionInput,
     popupCard, 
     validationConfig,
     profileForm,
-    cardForm
+    cardForm,
+    profileAvatar
 } from '../utils/constants.js';
 
 const editProfileValidator = new FormValidator(validationConfig, profileForm);
@@ -41,6 +39,7 @@ const editProfilePopup = new PopupWithForm(
     popupProfile, 
     editProfileValidator, 
     { handleFormSubmit: (data) => {
+        saveProfileInfo(data);
         profileInfo.setUserInfo(data);
         editProfilePopup.closePopup();
     }
@@ -49,6 +48,7 @@ const editProfilePopup = new PopupWithForm(
 const addCardPopup = new PopupWithForm(
     popupCard, addCardValidator, {
         handleFormSubmit: (data) => {
+            saveCard(data);
             const newCard = createCard(data);
             const cardElement = appendCard(newCard);
             addCardPopup.closePopup();
@@ -73,9 +73,22 @@ addButton.addEventListener('click', function () {
 function createCard(data) {
     const card = new Card( 
         data, 
-        { handleCardClick: () => {
+        { 
+            handleCardClick: () => {
             fullsizePopup.openPopup(data);
         }, 
+            handleDeleteCard: (cardId) => {
+            api
+            .deleteCard(cardId)
+            .then(() => {
+                card.deleteCard();
+            })
+            .catch(err => console.log(err))
+        },
+           // handleLikeClick: () => {
+            //api
+          //      .
+           // }
     },
         '.card-template');
     return card;
@@ -87,15 +100,61 @@ function appendCard(card) {
     return cardElement;
 }
 
-const cardsList = new Section ({
-    data: initialCards,
-    renderer: (data) => {
-        const newCard = createCard(data);
-        appendCard(newCard);
-    },
-}, cardsContainer
-);
+
+const api = new Api({
+    url: 'https://mesto.nomoreparties.co/v1/cohort-20',
+    headers: {
+      'content-type': 'application/json',
+      'authorization': '0f482ff9-d2c6-492c-9e7d-f39cea7fb85c'
+  },
+})
+
+function getInitialProfileData() {
+    api
+    .getProfileInfo()
+    .then((data) => {
+        profileName.textContent = data.name;
+        profileDescription.textContent = data.about;
+        profileAvatar.src = data.avatar;
+    })
+}
+
+getInitialProfileData();
+
+function saveCard(data) {
+    api
+        .addCard(data)
+        .then((data) => {
+            return data;
+        })
+        .catch(err => console.log(err))
+}
+
+function saveProfileInfo(data) {
+    api
+        .saveProfileInfo(data)
+        .then((data) => {
+            return data;
+        })
+        .catch(err => console.log(err))
+}
 
 
-cardsList.addItems();
+api
+    .getInitialCards()
+    .then((data) => {
+        const cardsList = new Section ({
+            data: data,
+            renderer: (data) => {
+                const newCard = createCard(data);
+                appendCard(newCard);
+            },
+        }, cardsContainer
+        );
+        cardsList.addItems();
+})
+    .catch(err => console.log(err))
+
+
+
 validateForms()
