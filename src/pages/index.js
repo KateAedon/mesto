@@ -31,7 +31,7 @@ function validateForms () {
     addCardValidator.enableValidation();
 }
 
-const profileInfo = new UserInfo(profileName, profileDescription);
+const profileInfo = new UserInfo( {profileName, profileDescription, profileAvatar });
 
 const fullsizePopup = new PopupWithImage(popupImage);
 
@@ -99,7 +99,7 @@ function appendCard(card) {
     cardsContainer.prepend(cardElement);
     return cardElement;
 }
-
+let userId = null;
 
 const api = new Api({
     url: 'https://mesto.nomoreparties.co/v1/cohort-20',
@@ -109,6 +109,7 @@ const api = new Api({
   },
 })
 
+/*
 function getInitialProfileData() {
     api
     .getProfileInfo()
@@ -116,10 +117,25 @@ function getInitialProfileData() {
         profileName.textContent = data.name;
         profileDescription.textContent = data.about;
         profileAvatar.src = data.avatar;
+        let userId = data._id;
+    }).then((userId) => {
+        return userId;
     })
-}
+}*/
 
-getInitialProfileData();
+api.getInitialData()
+    .then((data) => {
+        const [userData, cardsData] = data;
+        userId = userData._id;
+        profileInfo.setUserInfo(userData);
+       // cardsList.addItems(cardsData);
+    })
+    .catch((err) => {
+        console.log(err);
+    })
+
+
+//getInitialProfileData();
 
 function saveCard(data) {
     api

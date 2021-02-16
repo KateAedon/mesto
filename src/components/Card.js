@@ -1,11 +1,13 @@
 export class Card {
-    constructor(data, { handleCardClick, handleDeleteCard, handleLikeClick }, cardSelector ) {
+    constructor(data, { handleCardClick, handleDeleteCard, handleLikeClick }, cardSelector, userId ) {
         this._text = data.name;
         this._image = data.link;
         this._alt = data.name;
-        this._id = data._id;
+        this._data = data;
+        this._cardOwnerId = data._id;
+        this._userId = userId;
         this._cardSelector = cardSelector;
-        this._likeCounter = data.likes;
+        this._likeNumber = data.likes;
         this._handleCardClick = handleCardClick;
         this._handleDeleteCard = handleDeleteCard;
         this._handleLikeClick = handleLikeClick;
@@ -27,12 +29,24 @@ export class Card {
         const cardImage = this._element.querySelector('.card__image');
         cardImage.src = this._image;
         cardImage.alt = this._alt;
-        this._element.querySelector('.likes-counter').textContent = this._likeCounter.length;
         this._element.querySelector('.card__name').textContent = this._text;
         
-        this._setEventListeners('.card__image');
+        this._deleteButton = this._element.querySelector('.card__button-delete');
 
-          return this._element;
+        this._setEventListeners('.card__image');
+        this._checkCardOwner();
+        this.setLikesNumber(this._data);
+        return this._element;
+    }
+
+    _checkCardOwner() {
+        if (this._cardOwnerId !== this._userId) {
+            this._deleteButton.remove();
+        }
+    }
+
+    setLikesNumber(data) {
+        this._element.querySelector('.likes-counter').textContent = String(data.likes.length);
     }
 
     // метод установки слушателей событий (лайк, удаление, показать большое изображение)
@@ -40,7 +54,7 @@ export class Card {
           this._element.querySelector('.card__button-like').addEventListener('click', (evt) => {
             this._likeCard(evt);
         });
-        this._element.querySelector('.card__button-delete').addEventListener('click', () => {
+        this._deleteButton.addEventListener('click', () => {
             this._handleDeleteCard(this._id);
         }); 
       this._element.querySelector('.card__image').addEventListener('click', () => {
