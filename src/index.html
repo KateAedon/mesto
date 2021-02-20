@@ -30,6 +30,19 @@
             </section>
             <section class="cards">
                 <ul class="cards__list">
+                    <template class="card-template">
+                        <li class="card">
+                            <img class="card__image" src='https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg' alt="изображение">
+                            <div class="card__info">
+                                <h2 class="card__name"></h2>
+                                <div class="card__button-like-container">
+                                    <button type="button" class="card__button-like"></button>
+                                    <p class="likes-counter">0</p>
+                                </div>
+                            </div>  
+                            <button type="button" class="card__button-delete"></button>
+                        </li>
+                    </template>
                 </ul>
             </section>
         </main>
@@ -135,20 +148,5 @@
                 </form>
             </div>
         </section>
-
-        <template class="card-template">
-            <li class="card">
-                <img class="card__image" src='https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg' alt="изображение">
-                <div class="card__info">
-                    <h2 class="card__name"></h2>
-                    <div class="card__button-like-container">
-                        <button type="button" class="card__button-like"></button>
-                        <p class="likes-counter">0</p>
-                    </div>
-                </div>  
-                <button type="button" class="card__button-delete"></button>
-            </li>
-        </template>
-
 </body>
 </html>

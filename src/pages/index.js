@@ -76,6 +76,7 @@ fullsizePopup.setEventListeners();
 addCardPopup.setEventListeners();
 editProfilePopup.setEventListeners();
 changeAvatarPopup.setEventListeners();
+deleteCardPopup.setEventListeners();
 
 editButton.addEventListener('click', () => {
     const userData = profileInfo.getUserInfo();
@@ -100,8 +101,7 @@ function createCard({ name, link, likes, owner, _id }) {
         { name, link, likes, owner, _id, userId: profileInfo.returnUserId() }, 
         handleCardClick, 
         () => {
-            deleteCardPopup.setEventListeners(deleteCard(card));
-            deleteCardPopup.openPopup();
+            deleteCardPopup.openPopup(deleteCard(card));
         }, () => {
             api
             .addLike(card.returnCardId())

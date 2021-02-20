@@ -6,14 +6,15 @@ export class PopupWithConfirmDelete extends Popup {
         this._popup = popupSelector;
         this._submitDeleteButton = this._popup.querySelector('.form__confirm-button');
     }
-    setEventListeners(deleteCard) {
-        super.setEventListeners();
+
+    openPopup(deleteCard) {
+        super.openPopup();
         this._handleConfirmButton = deleteCard;
         this._submitDeleteButton.addEventListener('click', this._handleConfirmButton);
     }
 
     closePopup() {
         super.closePopup();
-        this._submitDeleteButton.removeEventListener('click', this._andleConfirmButton);
+        this._submitDeleteButton.removeEventListener('click', this._handleConfirmButton);
     }
 }
