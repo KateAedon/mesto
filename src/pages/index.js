@@ -40,8 +40,6 @@ const editProfilePopup = new PopupWithForm(
     popupProfile, 
     editProfileValidator, 
     { handleFormSubmit: (data) => {
-        renderLoading( popupProfile, true );
-        profileInfo.setUserInfo(data);
         saveProfileInfo(data);
         editProfilePopup.closePopup();
     }
@@ -175,10 +173,13 @@ const deleteCard = (card) => {
 }
 
 function saveProfileInfo(data) {
+    renderLoading( popupProfile, true );
     api
         .saveProfileInfo(data)
-        .then((data) => {
-            return data;
+        .then((res) => {
+            profileInfo.setUserInfo(res);
+            renderLoading( popupProfile, false );
+            return res;
         })
         .catch(err => console.log(err))
 }
