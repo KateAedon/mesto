@@ -1,8 +1,9 @@
 import { Popup } from '../components/Popup.js';
 
 export class PopupWithForm extends Popup {
-    constructor(popupSelector, formValidator, {handleFormSubmit}) {
+    constructor(popupSelector, formValidator, { handleFormSubmit }) {
         super(popupSelector);
+        this._formValidator = formValidator;
         this._handleFormSubmit = handleFormSubmit;
         this._form = this._popup.querySelector('.form');
         this._submitButton = this._form.querySelector('.form__save-button');

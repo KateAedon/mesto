@@ -6,15 +6,27 @@ export class UserInfo {
      }
 
     getUserInfo() {
-        const data = {
+        return {
             name: this._name.textContent,
             about: this._about.textContent
         };
-        return data;
     }
 
-    setUserInfo({name, about}) {
-        this._name.textContent = name;
-        this._about.textContent = about;
+    setUserInfo( data ) {
+        this._name.textContent = data.name;
+        this._about.textContent = data.about;
+        this.setUserAvatar(data);
+        this._avatar.alt = `${data.name} avatar`;
+    }
+
+    setUserAvatar(data) {
+        this._avatar.src = data.avatar;
+      }
+
+    setUserId(id) {
+        this._userId = id;
+    }
+    returnUserId() {
+        return this._userId;
     }
 }

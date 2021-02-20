@@ -14,9 +14,11 @@
         </header> 
         <main class="content">
             <section class="profile">
-                <div class="profile__image-container">
+              <div class="profile__image-container">
                     <img class="profile__image" src="<%=require('./images/profile__image.png')%>" alt="фото профиля">
-                </div>
+                    <button type="button" class="profile__avatar-button"></button>
+             </div>
+
                 <div class="profile__info">
                     <div class="profile__text">
                         <h1 class="profile__name">Жак-Ив Кусто</h1>
@@ -34,6 +36,7 @@
         <footer class="footer">
             <p class="footer__copyright">&#169; 2020. Kate Aedon</p>
         </footer>
+
         <section class="popup popup-profile">
             <div class="popup__container popup-profile__container">
                 <button type="button" class="popup-profile__close-button popup__close-button"></button>
@@ -56,8 +59,8 @@
                             minlength="2"
                             maxlength="200"
                             autocomplete="off"
-                            class="form__input form__input_type_description" 
-                            name="description" 
+                            class="form__input form__input_type_about" 
+                            name="about" 
                             value="Исследователь океана" 
                             placeholder="О себе">
                     <span id="profile-form-description-error" class="error"></span>
@@ -65,7 +68,8 @@
                 </form>
             </div>
         </section>
-     <section class="popup popup-card">
+
+        <section class="popup popup-card">
             <div class="popup__container popup-card__container">
                 <button type="button" class="popup-card__close-button popup__close-button"></button>
                 <h2 class="popup__heading">Новое место</h2>
@@ -94,6 +98,7 @@
                 </form>
             </div>
         </section>
+
         <section class="popup popup-image">
             <div class="popup-image__container">
                 <img class="popup-image__image" src='https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg' alt="изображение">
@@ -101,6 +106,36 @@
                 <button type="button" class="popup-image__close-button popup__close-button"></button>
             </div>
         </section>
+
+        <section class="popup popup-confirm">
+            <div class="popup__container popup-confirm__container">
+                <form class="form form-confirm" name="delete-card" novalidate>
+                    <button class="popup-confirm__close-button popup__close-button" type="button"></button>
+                    <h1 class="popup__heading popup-confirm__heading">Вы уверены?</h1>
+                    <button type="button" class="form__confirm-button form__save-button" type="button">Да</button>
+                </form>
+            </div>
+        </section>
+
+        <section class="popup popup-avatar">
+            <div class="popup__container popup-avatar__container">
+                <button type="button" class="popup-card__close-button popup__close-button"></button>
+                <h2 class="popup__heading">Обновить аватар</h2>
+                <form class="form avatar-form" name="edit-avatar" novalidate>
+                    <input type="url" 
+                            id="avatar-form-link"
+                            autocomplete="off"
+                            class="form__input_type_link form__input" 
+                            name="newAvatar" 
+                            value="" 
+                            placeholder="" 
+                            required>
+                    <span id="avatar-form-link-error" class="error"></span>
+                    <button type="submit" class="avatar-form__save-button form__save-button">Сохранить</button>
+                </form>
+            </div>
+        </section>
+
         <template class="card-template">
             <li class="card">
                 <img class="card__image" src='https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg' alt="изображение">
@@ -108,11 +143,12 @@
                     <h2 class="card__name"></h2>
                     <div class="card__button-like-container">
                         <button type="button" class="card__button-like"></button>
-                        <p class="likes-counter"></p>
+                        <p class="likes-counter">0</p>
                     </div>
                 </div>  
                 <button type="button" class="card__button-delete"></button>
             </li>
         </template>
+
 </body>
 </html>
