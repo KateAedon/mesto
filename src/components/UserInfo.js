@@ -16,11 +16,11 @@ export class UserInfo {
         this._name.textContent = data.name;
         this._about.textContent = data.about;
         this._avatar.src = data.avatar;
-       // this.setUserAvatar(data);
+       this.setUserAvatar(data);
     }
 
     setUserAvatar(data) {
-        this._avatar.src = data.newAvatar === '' ? this._avatar.src : data.newAvatar;
+        this._avatar.src = data.avatar;
       }
 
     setUserId(id) {
